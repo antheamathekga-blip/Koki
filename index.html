@@ -6,60 +6,40 @@
     <title>Matlou Anthea Mathekga - Technology Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Make text bigger and easier to read on phone */
-        .content-card p {
+      .content-card p {
             font-size: 16px;
             line-height: 1.7;
             color: #333;
             margin-bottom: 15px;
         }
-
-        .content-card h2 {
+      .content-card h2 {
             font-size: 24px;
             color: #6a0dad;
             margin-bottom: 15px;
         }
-
-        .content-card b {
+      .content-card b {
             color: #6a0dad;
+        }
+        #weather-box {
+            text-align:center;
+            padding:15px;
+            background:#f3e8ff;
+            margin:20px;
+            border-radius:10px;
+            border: 2px solid #6a0dad;
         }
     </style>
 </head>
-    <div id="weather-box" style="text-align:center; padding:15px; background:#f3e8ff; margin:20px; border-radius:10px;">
-  <p id="weather">Loading weather...</p>
-</div>
-
-<script>
-// Get user location and show weather
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showWeather);
-} else {
-  document.getElementById("weather").innerHTML = "Location not supported";
-}
-
-function showWeather(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  
-  // Free weather API - no key needed
-  let url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode`;
-  
-  fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    let temp = data.current.temperature_2m;
-    document.getElementById("weather").innerHTML = `📍 Johannesburg <br> 🌤️ ${temp}°C`;
-  })
-  .catch(() => {
-    document.getElementById("weather").innerHTML = "Weather unavailable";
-  });
-}
-        </script>
 <body>
 
 <header class="main-header">
     <h1>My Portfolio</h1>
     <p class="subtitle">Matlou Anthea Mathekga</p>
+
+    <div id="weather-box">
+        <p>📍 Johannesburg, Gauteng <br> 🌤️ 20°C • Clear Sky</p>
+    </div>
+
     <nav class="cv-nav">
         <button class="nav-btn active" onclick="openTab('about', this)">About Me</button>
         <button class="nav-btn" onclick="openTab('skills', this)">Technical Skills</button>
@@ -81,12 +61,75 @@ function showWeather(position) {
     <main class="content-card">
         <section id="about" class="tab-content" style="display: block;">
             <h2>About Me</h2>
-            <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets.</p>
-            <p>I am particularly focused on transforming legacy Excel-based workflows into robust, automated SQL-driven solutions that deliver significant performance gains. My goal is to secure a challenging position in Java Engineering and Data Analysis where I can leverage my deep technical knowledge and analytical mindset to drive efficiency and data-driven decision-making.</p>
+            <!-- SHORT PARAGRAPH SHOWS FIRST -->
+            <p id="about-short">I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis.</p>
+
+            <!-- FULL PARAGRAPHS HIDDEN UNTIL YOU CLICK BUTTON -->
+            <div id="about-full" style="display: none;">
+                <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets.</p>
+                <p>I am particularly focused on transforming legacy Excel-based workflows into robust, automated SQL-driven solutions that deliver significant performance gains. My goal is to secure a challenging position in Java Engineering and Data Analysis where I can leverage my deep technical knowledge and analytical mindset to drive efficiency and data-driven decision-making.</p>
+            </div>
         </section>
 
         <section id="skills" class="tab-content" style="display: none;">
             <h2>Technical Skills & Competencies</h2>
             <p><b>Programming & Backend:</b> Java, Spring Boot, Object-Oriented Programming, REST APIs</p>
             <p><b>Data & Database:</b> SQL, MS Access, Data Modeling, Data Cleaning, Excel VBA, Advanced Excel, Power BI</p>
-            <p><b>Systems & Hardware:</b> Hardware Diagnostics
+            <p><b>Systems & Hardware:</b> Hardware Diagnostics, System Troubleshooting, Network Configuration, POS Systems</p>
+            <p><b>Tools:</b> Git, GitHub, VS Code, IntelliJ IDEA</p>
+        </section>
+
+        <section id="experience" class="tab-content" style="display: none;">
+            <h2>Professional Experience</h2>
+            <p><b>Java Engineer & Data Analyst</b> - Tondani PTY LTD | Aug 2022 ‒ Aug 2023</p>
+            <p>Developed and maintained scripts to capture and audit engineering drafts, ensuring data integrity across project lifecycles. Designed and implemented an automated tracking and reporting system using Excel VBA, reducing manual reporting time by 40%. Collaborated with senior engineers to translate business requirements into technical data solutions and SQL queries for project dashboards.</p>
+            <br>
+            <p><b>Customer Systems Liaison</b> - Fashion Faction PTY LTD | Feb 2018 ‒ Dec 2020</p>
+            <p>Configured and maintained POS systems across 5 retail locations. Analyzed daily sales data to identify trends and provide actionable reports to management. Provided first-line technical support for hardware and software issues, ensuring 99% system uptime.</p>
+        </section>
+
+        <section id="education" class="tab-content" style="display: none;">
+            <h2>Academic & Professional Training</h2>
+            <p><b>Diploma in Information Technology</b><br>
+            Tshwane North College | Specialization: Java Development & Data Analysis</p>
+            <br>
+            <p><b>Certifications:</b><br>
+            Java Programming Fundamentals<br>
+            Advanced Excel & Data Analysis</p>
+        </section>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <p>© 2026 Anthea Mathekga. All Rights Reserved.</p>
+    <p>Built with 💜</p>
+</footer>
+
+<script>
+function openTab(tabName, button) {
+  // Hide all tabs
+  var allTabs = document.getElementsByClassName("tab-content");
+  for (var i = 0; i < allTabs.length; i++) {
+    allTabs[i].style.display = "none";
+  }
+
+  // Deactivate all buttons
+  var allButtons = document.getElementsByClassName("nav-btn");
+  for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].classList.remove("active");
+  }
+
+  // Show clicked tab + button
+  document.getElementById(tabName).style.display = "block";
+  button.classList.add("active");
+
+  // SPECIAL RULE FOR ABOUT ME
+  if(tabName === 'about') {
+    document.getElementById("about-short").style.display = "none";
+    document.getElementById("about-full").style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>

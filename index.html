@@ -8,24 +8,20 @@
 </head>
 <body>
 
-    <!-- Purple Main Header Component -->
     <header class="main-header">
         <h1>My Portfolio</h1>
         <p class="subtitle">Matlou Anthea Mathekga</p>
-        
-        <!-- Navigation Tab Menu -->
         <nav class="cv-nav">
-            <button class="nav-btn active" onclick="showTab(event, 'about')">About Me</button>
-            <button class="nav-btn" onclick="showTab(event, 'skills')">Technical Skills</button>
-            <button class="nav-btn" onclick="showTab(event, 'experience')">Work Experience</button>
-            <button class="nav-btn" onclick="showTab(event, 'education')">Education & Training</button>
+            <button class="nav-btn active" onclick="showTab('about')">About Me</button>
+            <button class="nav-btn" onclick="showTab('skills')">Technical Skills</button>
+            <button class="nav-btn" onclick="showTab('experience')">Work Experience</button>
+            <button class="nav-btn" onclick="showTab('education')">Education & Training</button>
         </nav>
     </header>
 
     <div class="portfolio-container">
-        <!-- Profile & Contact Card Component -->
         <div class="profile-card">
-            <img src="profile.jpeg" alt="Matlou Anthea Mathekga Headshot" class="profile-img">
+            <img src="profile.jpeg" alt="Profile" class="profile-img">
             <div class="contact-info">
                 <h3>Matlou Anthea Mathekga</h3>
                 <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
@@ -33,45 +29,19 @@
             </div>
         </div>
 
-        <!-- Weather Tracking Component -->
         <div class="weather-widget">
             <h3>Current Weather</h3>
-            <p id="location">Detecting location...</p>
-            <p id="weather-desc">Loading weather data...</p>
-            <p id="temperature"></p>
+            <p id="location">📍 Johannesburg, ZA</p>
+            <p id="weather-desc">Partly Cloudy ⛅</p>
+            <p id="temperature">20°C</p>
         </div>
 
-        <!-- Dynamic Content Card Panel -->
-        <main id="contentBox" class="content-card">
-            
-            <!-- About Section Panel -->
+        <main class="content-card">
             <section id="about" class="tab-content active">
                 <h2>About Me</h2>
-                <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets. I leverage strong programming methodologies, modern data-modeling practices, and administrative systems to streamline operational workflows and support mission-critical enterprise environments. I am highly adaptable, mathematically minded, and immediately available to contribute technical excellence to engineering and analytical operations.</p>
+                <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets.</p>
             </section>
 
-            <!-- Skills Section Panel -->
             <section id="skills" class="tab-content">
                 <h2>Technical Skills & Competencies</h2>
-                <div class="skills-grid">
-                    <div>
-                        <h3>Software Engineering</h3>
-                        <ul class="skills-list">
-                            <li>Java Development (Core Java, OOP, Exception Handling)</li>
-                            <li>Spring Boot Framework & RESTful API Architecture</li>
-                            <li>Database Modeling & Administration (SQL, MS Access)</li>
-                            <li>Basic Scripting & Visual Basic for Applications (VBA Coding)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Data Analysis & Operations</h3>
-                        <ul class="skills-list">
-                            <li>Advanced Data Analytics (MS Excel Pivot Tables, VLOOKUP)</li>
-                            <li>Statistical Reporting & Quantitative Performance Metric Analysis</li>
-                            <li>Data Capturing, Validation, Quality Audits, and Record Management</li>
-                            <li>Technical Documentation & Multi-stakeholder Project Support</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>IT Infrastructure & Support</h3>
-                        <ul class="skills
+                <p>Java Development, Spring Boot, SQL, MS Access, Data Analysis, Excel VBA, Hardware Diagnostics, Network Configuration</

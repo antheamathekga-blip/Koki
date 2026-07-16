@@ -25,7 +25,8 @@
     <div class="portfolio-container">
         <!-- Profile & Contact Card Component -->
         <div class="profile-card">
-            <img src="profile1.jpeg" alt="" class="profile-img">
+            <!-- Updated to match your exact filename case-sensitivity -->
+            <img src="profile.JPEG" alt="Matlou Anthea Mathekga Headshot" class="profile-img">
             <div class="contact-info">
                 <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
                 <p>🏠 Johannesburg South</p>
@@ -40,13 +41,14 @@
             <p id="temperature"></p>
         </div>
 
-        <!-- Dynamic Content Card Panel (Starts completely closed) -->
+        <!-- Dynamic Content Card Panel -->
         <main id="contentBox" class="content-card">
             
             <!-- About Section Panel -->
             <section id="about" class="tab-content">
                 <h2>About Me</h2>
-                <img src="./profile2.jpg" alt="Matlou Anthea Mathekga Feature" class="inline-profile-img">
+                <!-- Updated to match your exact filename case-sensitivity -->
+                <img src="profile.JPEG" alt="Matlou Anthea Mathekga Feature" class="inline-profile-img">
                 <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets. I leverage strong programming methodologies, modern data-modeling practices, and administrative systems to streamline operational workflows and support mission-critical enterprise environments. I am highly adaptable, mathematically minded, and immediately available to contribute technical excellence to engineering and analytical operations.</p>
             </section>
 
@@ -109,7 +111,6 @@
                         <li>Configured and maintained local Point-of-Sale (POS) application networks and transactional databases, resolving unexpected system freezes and connectivity bottlenecks.</li>
                         <li>Captured transactional log datasets to analyze quarterly consumer purchasing trends, generating data-driven sales insights for administrative scaling.</li>
                         <li>Administered business operational workflows including digital invoicing systems, vendor procurement quotes, client contract registries, and cross-channel inventory audits.</li>
-                        <li>Managed cloud-based digital social media engagement engines, monitoring audience feedback metrics to run targeted community outreach campaigns.</li>
                     </ul>
                 </div>
             </section>
@@ -124,20 +125,39 @@
                 </div>
                 
                 <h3 style="color: #6a1b9a; margin-top: 20px; margin-bottom: 10px;">Work-Based Experience (WBE) Certifications</h3>
-                <div class="education-item">
-                    <p><strong>IT Support & Software Engineering Placement (2025):</strong> Focused on operational infrastructure optimization, device diagnostics, Java software deployments, and system network health mapping protocols.</p>
-                </div>
-                <div class="education-item">
-                    <p><strong>Advanced Data Analysis & Automation Training:</strong> Certified proficiency in Microsoft Excel Automation, automated workflows using Visual Basic for Applications (VBA coding engines), and Access data query handling.</p>
-                </div>
-                <div class="education-item">
-                    <p><strong>Network Infrastructure & Contact Centre Placements:</strong> Specialized in professional infrastructure engineering, local-area connectivity installation testing, network physical layer topology, and customer service escalation pathways.</p>
-                </div>
             </section>
         </main>
     </div>
 
-    <script src="./script.js"></script>
-</body>
-                              </html>
-  
+    <!-- Weather Engine JavaScript Integration -->
+    <script>
+        async function fetchWeather() {
+            try {
+                // Fetching open geolocation coordinates for Johannesburg via SSL secure API
+                const response = await fetch('https://open-meteo.com');
+                if (!response.ok) throw new Error('Network gateway unreachable');
+                
+                const data = await response.json();
+                const temp = data.current_weather.temperature;
+                const code = data.current_weather.weathercode;
+                
+                // Weather indicator mapper 
+                let description = "Clear skies";
+                if (code > 0 && code <= 3) description = "Partly Cloudy";
+                else if (code >= 45 && code <= 48) description = "Foggy conditions";
+                else if (code >= 51 && code <= 67) description = "Light Rain / Drizzle";
+                else if (code >= 71 && code <= 82) description = "Scattered Showers";
+                else if (code >= 95) description = "Thunderstorms";
+
+                document.getElementById('location').innerText = "📍 Johannesburg, South Africa";
+                document.getElementById('weather-desc').innerText = description;
+                document.getElementById('temperature').innerText = `${temp}°C`;
+            } catch (error) {
+                document.getElementById('location').innerText = "📍 Johannesburg South";
+                document.getElementById('weather-desc').innerText = "Weather module offline";
+                document.getElementById('temperature').innerText = "--°C";
+            }
+        }
+        
+        // Execute weather system initialization when page lifecycle fully mounts
+    

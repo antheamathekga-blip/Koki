@@ -2,46 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matlou Anthea Mathekga - Technology Portfolio</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Anthea Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <h1>My Portfolio</h1>
-        <p class="subtitle">Matlou Anthea Mathekga</p>
-        <nav class="cv-nav">
-            <button class="nav-btn active" onclick="showTab('about')">About Me</button>
-            <button class="nav-btn" onclick="showTab('skills')">Technical Skills</button>
-            <button class="nav-btn" onclick="showTab('experience')">Work Experience</button>
-            <button class="nav-btn" onclick="showTab('education')">Education & Training</button>
-        </nav>
-    </header>
+<header class="main-header">
+    <h1>My Portfolio</h1>
+    <p class="subtitle">Matlou Anthea Mathekga</p>
+    <nav class="cv-nav">
+        <button class="nav-btn active" onclick="openTab('about', this)">About Me</button>
+        <button class="nav-btn" onclick="openTab('skills', this)">Technical Skills</button>
+        <button class="nav-btn" onclick="openTab('experience', this)">Work Experience</button>
+        <button class="nav-btn" onclick="openTab('education', this)">Education</button>
+    </nav>
+</header>
 
-    <div class="portfolio-container">
-        <div class="profile-card">
-            <img src="profile.jpeg" alt="Profile" class="profile-img">
-            <div class="contact-info">
-                <h3>Matlou Anthea Mathekga</h3>
-                <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
-                <p>🏠 Johannesburg South</p>
-            </div>
+<div class="portfolio-container">
+    <div class="profile-card">
+        <img src="profile.jpeg" class="profile-img">
+        <div class="contact-info">
+            <h3>Matlou Anthea Mathekga</h3>
+            <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
         </div>
+    </div>
 
-        <div class="weather-widget">
-            <h3>Current Weather</h3>
-            <p id="location">📍 Johannesburg, ZA</p>
-            <p id="weather-desc">Partly Cloudy ⛅</p>
-            <p id="temperature">20°C</p>
-        </div>
+    <main class="content-card">
+        <section id="about" class="tab-content active">
+            <h2>About Me</h2>
+            <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis.</p>
+        </section>
+        <section id="skills" class="tab-content">
+            <h2>Technical Skills</h2>
+            <p>Java, Spring Boot, SQL, Data Analysis, Excel VBA</p>
+        </section>
+        <section id="experience" class="tab-content">
+            <h2>Work Experience</h2>
+            <p>Java Engineer & Data Analyst - Tondani PTY LTD</p>
+        </section>
+        <section id="education" class="tab-content">
+            <h2>Education</h2>
+            <p>Diploma in Information Technology - Tshwane North College</p>
+        </section>
+    </main>
+</div>
 
-        <main class="content-card">
-            <section id="about" class="tab-content active">
-                <h2>About Me</h2>
-                <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets.</p>
-            </section>
+<footer class="site-footer">
+    <p>© 2026 Anthea Mathekga</p>
+</footer>
 
-            <section id="skills" class="tab-content">
-                <h2>Technical Skills & Competencies</h2>
-                <p>Java Development, Spring Boot, SQL, MS Access, Data Analysis, Excel VBA, Hardware Diagnostics, Network Configuration</
+<script>
+function openTab(tabName, button) {
+  var i;
+  var x = document.getElementsByClassName("tab-content");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  var b = document.getElementsByClassName("nav-btn");
+  for (i = 0; i < b.length; i++) {
+    b[i].classList.remove("active");
+  }
+  document.getElementById(tabName).style.display = "block";
+  button.classList.add("active");
+}
+</script>
+
+</body>
+</html>

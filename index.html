@@ -4,180 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matlou Anthea Mathekga - Technology Portfolio</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Make text bigger and easier to read on phone */
+        .content-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .content-card h2 {
+            font-size: 24px;
+            color: #6a0dad;
+            margin-bottom: 15px;
+        }
+
+        .content-card b {
+            color: #6a0dad;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Purple Main Header Component -->
-    <header class="main-header">
-        <h1>My Portfolio</h1>
-        <p class="subtitle">Matlou Anthea Mathekga</p>
-        
-        <!-- Navigation Tab Menu -->
-        <nav class="cv-nav">
-            <button class="nav-btn active" onclick="showTab(event, 'about')">About Me</button>
-            <button class="nav-btn" onclick="showTab(event, 'skills')">Technical Skills</button>
-            <button class="nav-btn" onclick="showTab(event, 'experience')">Work Experience</button>
-            <button class="nav-btn" onclick="showTab(event, 'education')">Education & Training</button>
-        </nav>
-    </header>
+<header class="main-header">
+    <h1>My Portfolio</h1>
+    <p class="subtitle">Matlou Anthea Mathekga</p>
+    <nav class="cv-nav">
+        <button class="nav-btn active" onclick="openTab('about', this)">About Me</button>
+        <button class="nav-btn" onclick="openTab('skills', this)">Technical Skills</button>
+        <button class="nav-btn" onclick="openTab('experience', this)">Work Experience</button>
+        <button class="nav-btn" onclick="openTab('education', this)">Education & Training</button>
+    </nav>
+</header>
 
-    <div class="portfolio-container">
-        <!-- Profile & Contact Card Component - NOW SIDE BY SIDE -->
-        <div class="profile-card">
-            <!-- CHANGE: lowercase .jpeg for GitHub Pages -->
-            <img src="profile.jpeg" alt="Matlou Anthea Mathekga Headshot" class="profile-img">
-            <div class="contact-info">
-                <h3>Matlou Anthea Mathekga</h3>
-                <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
-                <p>🏠 Johannesburg South</p>
-            </div>
+<div class="portfolio-container">
+    <div class="profile-card">
+        <img src="profile.jpeg" alt="Profile Photo" class="profile-img">
+        <div class="contact-info">
+            <h3>Matlou Anthea Mathekga</h3>
+            <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
+            <p>🏠 Johannesburg South, Gauteng</p>
         </div>
-
-        <!-- Weather Tracking Component -->
-        <div class="weather-widget">
-            <h3>Current Weather</h3>
-            <p id="location">Detecting location...</p>
-            <p id="weather-desc">Loading tracking systems...</p>
-            <p id="temperature"></p>
-        </div>
-
-        <!-- Dynamic Content Card Panel -->
-        <main id="contentBox" class="content-card">
-            
-            <!-- About Section Panel -->
-            <section id="about" class="tab-content active">
-                <h2>About Me</h2>
-                <img src="profile.jpeg" alt="Matlou Anthea Mathekga Feature" class="inline-profile-img">
-                <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets. I leverage strong programming methodologies, modern data-modeling practices, and administrative systems to streamline operational workflows and support mission-critical enterprise environments. I am highly adaptable, mathematically minded, and immediately available to contribute technical excellence to engineering and analytical operations.</p>
-            </section>
-
-            <!-- Skills Section Panel -->
-            <section id="skills" class="tab-content">
-                <h2>Technical Skills & Competencies</h2>
-                <div class="skills-grid">
-                    <div>
-                        <h3 style="color: #6a1b9a; margin-bottom: 8px;">Software Engineering</h3>
-                        <ul class="skills-list">
-                            <li>Java Development (Core Java, OOP, Exception Handling)</li>
-                            <li>Spring Boot Framework & RESTful API Architecture</li>
-                            <li>Database Modeling & Administration (SQL, MS Access)</li>
-                            <li>Basic Scripting & Visual Basic for Applications (VBA Coding)</li>
-                        </ul>
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <h3 style="color: #6a1b9a; margin-bottom: 8px;">Data Analysis & Operations</h3>
-                        <ul class="skills-list">
-                            <li>Advanced Data Analytics (MS Excel Pivot Tables, VLOOKUP)</li>
-                            <li>Statistical Reporting & Quantitative Performance Metric Analysis</li>
-                            <li>Data Capturing, Validation, Quality Audits, and Record Management</li>
-                            <li>Technical Documentation & Multi-stakeholder Project Support</li>
-                        </ul>
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <h3 style="color: #6a1b9a; margin-bottom: 8px;">IT Infrastructure & Support</h3>
-                        <ul class="skills-list">
-                            <li>Hardware Diagnostics, System Troubleshooting & Device Repairs</li>
-                            <li>Network Infrastructure Deployment, Cabling, & Configuration Testing</li>
-                            <li>Contact Centre Management, Customer Experience & Communications</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience Section Panel -->
-            <section id="experience" class="tab-content">
-                <h2>Professional Experience</h2>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Java Engineer & Data Analyst (Project Support)</h3>
-                        <span>Aug 2022 ‒ Aug 2023</span>
-                    </div>
-                    <p class="company">Tondani (PTY) LTD ‒ Civil Works & Technology Projects</p>
-                    <ul>
-                        <li>Developed clean, modular scripts to capture, audit, and clean engineering drafts, technical component specifications, and operational project logs.</li>
-                        <li>Designed automated tracking spreadsheet frameworks utilizing Excel VBA macros to systematically check engineering materials quality compliance and monitor milestone achievements.</li>
-                        <li>Generated descriptive analytics and quantitative statistical progress reports for senior leadership, helping optimize delivery timelines across active worksites.</li>
-                        <li>Maintained robust, structured records of system designs, code updates, and technical document version tracking schemas.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3>Customer Systems Liaison & Administrative Specialist</h3>
-                        <span>Feb 2018 ‒ Dec 2020</span>
-                    </div>
-                    <p class="company">Fashion Faction (PTY) LTD ‒ Retail Digital Startup</p>
-                    <ul>
-                        <li>Configured and maintained local Point-of-Sale (POS) application networks and transactional databases, resolving unexpected system freezes and connectivity bottlenecks.</li>
-                        <li>Captured transactional log datasets to analyze quarterly consumer purchasing trends, generating data-driven sales insights for administrative scaling.</li>
-                        <li>Administered business operational workflows including digital invoicing systems, vendor procurement quotes, client contract registries, and cross-channel inventory audits.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Education Section Panel -->
-            <section id="education" class="tab-content">
-                <h2>Academic & Professional Training</h2>
-                <div class="education-item">
-                    <h3>Diploma in Information Technology</h3>
-                    <p class="institution">Tshwane North College</p>
-                    <p class="edu-details">Specialization tracks completed in core backend programming architectures, database management systems, advanced object-oriented design patterns, networking hardware components, and enterprise server systems engineering.</p>
-                </div>
-                
-                <h3 style="color: #6a1b9a; margin-top: 20px; margin-bottom: 10px;">Work-Based Experience (WBE) Certifications</h3>
-            </section>
-        </main>
     </div>
 
-    <!-- FOOTER ADDED -->
-    <footer class="site-footer">
-        <p>© 2026 Anthea Mathekga. All Rights Reserved.</p>
-        <p>Built with 💜</p>
-    </footer>
+    <main class="content-card">
+        <section id="about" class="tab-content" style="display: block;">
+            <h2>About Me</h2>
+            <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets.</p>
+            <p>I am particularly focused on transforming legacy Excel-based workflows into robust, automated SQL-driven solutions that deliver significant performance gains. My goal is to secure a challenging position in Java Engineering and Data Analysis where I can leverage my deep technical knowledge and analytical mindset to drive efficiency and data-driven decision-making.</p>
+        </section>
 
-    <!-- Tab + Weather Engine JavaScript -->
-    <script>
-        // FIX: Tab switching function
-        function showTab(evt, tabId) {
-            // Hide all tab content
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Remove active from all buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            // Show current tab and make button active
-            document.getElementById(tabId).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
-
-        // Weather - using your location
-        async function fetchWeather() {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(async (pos) => {
-                    try {
-                        const lat = pos.coords.latitude;
-                        const lon = pos.coords.longitude;
-                        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-                        const data = await response.json();
-                        const temp = data.current_weather.temperature;
-                        
-                        document.getElementById('location').innerText = "📍 Your Location";
-                        document.getElementById('weather-desc').innerText = "Current Conditions";
-                        document.getElementById('temperature').innerText = `${temp}°C`;
-                    } catch (error) {
-                        document.getElementById('location').innerText = "📍 Johannesburg South";
-                        document.getElementById('weather-desc').innerText = "Weather module offline";
-                        document.getElementById('temperature').innerText = "--°C";
-                    }
-                }, () => {
-                    document.getElementById('location').innerText = "📍 Johannesburg South";
-                });
-            }
-        }
-        
-        fetchWeather(); // run on load
-    </script>
-</body>
-                    </html>
+        <section id="skills" class="tab-content" style="display: none;">
+            <h2>Technical Skills & Competencies</h2>
+            <p><b>Programming & Backend:</b> Java, Spring Boot, Object-Oriented Programming, REST APIs</p>
+            <p><b>Data & Database:</b> SQL, MS Access, Data Modeling, Data Cleaning, Excel VBA, Advanced Excel, Power BI</p>
+            <p><b>Systems & Hardware:</b> Hardware Diagnostics

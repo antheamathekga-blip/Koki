@@ -25,6 +25,36 @@
         }
     </style>
 </head>
+    <div id="weather-box" style="text-align:center; padding:15px; background:#f3e8ff; margin:20px; border-radius:10px;">
+  <p id="weather">Loading weather...</p>
+</div>
+
+<script>
+// Get user location and show weather
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showWeather);
+} else {
+  document.getElementById("weather").innerHTML = "Location not supported";
+}
+
+function showWeather(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  
+  // Free weather API - no key needed
+  let url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode`;
+  
+  fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    let temp = data.current.temperature_2m;
+    document.getElementById("weather").innerHTML = `📍 Johannesburg <br> 🌤️ ${temp}°C`;
+  })
+  .catch(() => {
+    document.getElementById("weather").innerHTML = "Weather unavailable";
+  });
+}
+        </script>
 <body>
 
 <header class="main-header">

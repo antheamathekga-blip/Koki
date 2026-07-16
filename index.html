@@ -6,176 +6,40 @@
 <title>Anthea Mathekga | Portfolio</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body { background: #f4f4f4; color: #333; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
-  body {
-    background: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* for sticky footer */
-  }
-
-  /* HEADER */
-  header {
-    background: #6a0dad; /* purple */
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
+  header { background: #6a0dad; color: white; text-align: center; padding: 20px; }
   header h1 { font-size: 28px; }
 
-  /* CONTACT CARD - picture on side */
   .contact-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 25px;
-    background: white;
-    border-radius: 15px;
-    max-width: 700px;
-    margin: 30px auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 20px; padding: 25px;
+    background: white; border-radius: 15px; max-width: 700px;
+    margin: 30px auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
   .headshot {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #6a0dad;
-    flex-shrink: 0;
+    width: 130px; height: 130px; border-radius: 50%;
+    object-fit: cover; border: 4px solid #6a0dad; flex-shrink: 0;
   }
   .contact-info h3 { font-size: 22px; color: #6a0dad; }
   .contact-info p { margin: 5px 0; }
 
-  /* BUTTONS + TOGGLE SECTIONS */
   .container { max-width: 700px; margin: 0 auto; padding: 0 20px; }
   .toggle-btn {
-    background: #6a0dad;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 8px 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+    background: #6a0dad; color: white; border: none; padding: 12px 20px;
+    margin: 8px 5px; border-radius: 8px; cursor: pointer; font-size: 16px;
     transition: 0.3s;
   }
   .toggle-btn:hover { background: #520a8a; }
   .content {
-    background: white;
-    padding: 20px;
-    margin: 10px 0 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: white; padding: 20px; margin: 10px 0 20px 0;
+    border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: none; /* hidden by default */
   }
-  .content.active { display: block; } /* shown when button clicked */
+  .content.active { display: block; } /* this makes it show */
 
-  /* WEATHER */
-  .weather {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    max-width: 700px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+  .weather { background: white; padding: 20px; margin: 20px auto; border-radius: 10px; max-width: 700px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
-  /* FOOTER */
-  footer {
-    background: #6a0dad;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    margin-top: auto; /* pushes to bottom */
-    font-size: 14px;
-  }
+  footer { background: #6a0dad; color: white; text-align: center; padding: 20px 10px; margin-top: auto; font-size: 14px; }
 
-  /* MOBILE */
   @media (max-width: 600px) {
-    .contact-card {
-      flex-direction: column;
-      text-align: center;
-    }
-    .contact-info { text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <h1>My Portfolio</h1>
-</header>
-
-<div class="contact-card">
-  <!-- CHANGE THIS IMAGE PATH -->
-  <img src="images/headshot.jpg" alt="Anthea Mathekga Headshot" class="headshot">
-  
-  <div class="contact-info">
-    <h3>Matlou Anthea Mathekga</h3>
-    <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
-    <p>📍 Johannesburg South</p>
-  </div>
-</div>
-
-<div class="container">
-  <button class="toggle-btn" data-target="about">About Me</button>
-  <button class="toggle-btn" data-target="skills">Technical Skills</button>
-  <button class="toggle-btn" data-target="projects">Projects</button>
-
-  <div id="about" class="content">
-    <h2>About Me</h2>
-    <p>Write your bio here. Who you are and what you do.</p>
-  </div>
-
-  <div id="skills" class="content">
-    <h2>Technical Skills</h2>
-    <p>HTML, CSS, JavaScript, Python, etc.</p>
-  </div>
-
-  <div id="projects" class="content">
-    <h2>Projects</h2>
-    <p>List your projects here.</p>
-  </div>
-</div>
-
-<div class="weather">
-  <h2>Weather</h2>
-  <p id="weather-text">Detecting location...</p>
-</div>
-
-<footer>
-  <p>© 2026 Anthea Mathekga. All Rights Reserved.</p>
-  <p>Built with 💜</p>
-</footer>
-
-<script>
-  // TOGGLE BUTTONS
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = document.getElementById(btn.dataset.target);
-      target.classList.toggle('active');
-    });
-  });
-
-  // WEATHER LOCATION
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        document.getElementById('weather-text').innerText = 
-          `Location found! Lat: ${pos.coords.latitude.toFixed(2)}, Lon: ${pos.coords.longitude.toFixed(2)} 
-           // Connect your weather API here`;
-      },
-      (err) => {
-        document.getElementById('weather-text').innerText = "Location permission denied. Please allow location access.";
-      }
-    );
-  } else {
-    document.getElementById('weather-text').innerText = "Geolocation not supported by this browser.";
-  }
-</script>
-
-</body>
-</html>
+   

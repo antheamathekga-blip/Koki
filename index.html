@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Anthea Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlou Anthea Mathekga - Technology Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,58 +15,33 @@
         <button class="nav-btn active" onclick="openTab('about', this)">About Me</button>
         <button class="nav-btn" onclick="openTab('skills', this)">Technical Skills</button>
         <button class="nav-btn" onclick="openTab('experience', this)">Work Experience</button>
-        <button class="nav-btn" onclick="openTab('education', this)">Education</button>
+        <button class="nav-btn" onclick="openTab('education', this)">Education & Training</button>
     </nav>
 </header>
 
 <div class="portfolio-container">
     <div class="profile-card">
-        <img src="profile.jpeg" class="profile-img">
+        <img src="profile.jpeg" alt="Profile Photo" class="profile-img">
         <div class="contact-info">
             <h3>Matlou Anthea Mathekga</h3>
             <p>📞 076 248 9604 | 📧 antheamathekga@gmail.com</p>
+            <p>🏠 Johannesburg South, Gauteng</p>
         </div>
     </div>
 
     <main class="content-card">
-        <section id="about" class="tab-content active">
+        <section id="about" class="tab-content" style="display: block;">
             <h2>About Me</h2>
-            <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis.</p>
+            <p>I am an ambitious, technical, and results-driven professional holding a Diploma in Information Technology, specializing in Java Development and Data Analysis. Combining software development principles with advanced analytical engineering, I excel at building highly scalable backend architectures using Java and Spring frameworks while extracting actionable business intelligence from complex technical datasets. I am particularly focused on transforming legacy Excel-based workflows into robust, automated SQL-driven solutions that deliver significant performance gains. My goal is to secure a challenging position in Java Engineering and Data Analysis where I can leverage my deep technical knowledge and analytical mindset to drive efficiency and data-driven decision-making.</p>
         </section>
-        <section id="skills" class="tab-content">
-            <h2>Technical Skills</h2>
-            <p>Java, Spring Boot, SQL, Data Analysis, Excel VBA</p>
-        </section>
-        <section id="experience" class="tab-content">
-            <h2>Work Experience</h2>
-            <p>Java Engineer & Data Analyst - Tondani PTY LTD</p>
-        </section>
-        <section id="education" class="tab-content">
-            <h2>Education</h2>
-            <p>Diploma in Information Technology - Tshwane North College</p>
-        </section>
-    </main>
-</div>
 
-<footer class="site-footer">
-    <p>© 2026 Anthea Mathekga</p>
-</footer>
+        <section id="skills" class="tab-content" style="display: none;">
+            <h2>Technical Skills & Competencies</h2>
+            <p><b>Programming & Backend:</b> Java, Spring Boot, Object-Oriented Programming, REST APIs<br>
+            <b>Data & Database:</b> SQL, MS Access, Data Modeling, Data Cleaning, Excel VBA, Advanced Excel, Power BI<br>
+            <b>Systems & Hardware:</b> Hardware Diagnostics, System Troubleshooting, Network Configuration, POS Systems<br>
+            <b>Tools:</b> Git, GitHub, VS Code, IntelliJ IDEA</p>
+        </section>
 
-<script>
-function openTab(tabName, button) {
-  var i;
-  var x = document.getElementsByClassName("tab-content");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  var b = document.getElementsByClassName("nav-btn");
-  for (i = 0; i < b.length; i++) {
-    b[i].classList.remove("active");
-  }
-  document.getElementById(tabName).style.display = "block";
-  button.classList.add("active");
-}
-</script>
-
-</body>
-</html>
+        <section id="experience" class="tab-content" style="display: none;">
+            

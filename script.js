@@ -1,37 +1,37 @@
-// Toggle Functionality System
+// Dynamic Toggle & Dropdown System
 function showTab(event, tabId) {
     const contentCard = document.getElementById('contentBox');
+    const targetSection = document.getElementById(tabId);
     
-    // Check if the clicked button is already active
+    // If the pressed button is already active, close the dropdown
     if (event.currentTarget.classList.contains('active')) {
-        // Close everything if pressed a second time (Exit/Collapse behavior)
         event.currentTarget.classList.remove('active');
-        document.getElementById(tabId).classList.remove('active-content');
+        targetSection.classList.remove('active-content');
         contentCard.classList.remove('revealed');
         return;
     }
 
-    // Otherwise, ensure the main card structure is visible
+    // Ensure the main data white container reveals
     contentCard.classList.add('revealed');
 
-    // Hide all present section layout panels
+    // Hide all other section text contents
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active-content'));
     
-    // Drop active selection state from all button elements
+    // Clear active highlight states from all layout buttons
     const buttons = document.querySelectorAll('.nav-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     
-    // Instantly reveal target chosen panel and attach active button focus styles
-    document.getElementById(tabId).classList.add('active-content');
-    event.currentTarget.add('active');
+    // Reveal the selected info block and highlight the clicked button
+    targetSection.classList.add('active-content');
+    event.currentTarget.classList.add('active');
 }
 
-// Automatically request phone geolocation metrics
+// Automatic Geolocation Activation
 window.addEventListener('load', () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getWeather, handleGeoFallback, {
-            timeout: 3000,
+            timeout: 4000,
             enableHighAccuracy: false
         });
     } else {
@@ -58,15 +58,15 @@ function fetchWeatherData(lat, lon, locationLabel) {
             
             let description = "Clear skies";
             if (weatherCode > 0 && weatherCode <= 3) description = "Partly Cloudy";
-            else if (weatherCode >= 45 && weatherCode <= 48) description = "Foggy conditions";
-            else if (weatherCode >= 51 && weatherCode <= 67) description = "Drizzle / Rain";
-            else if (weatherCode >= 71) description = "Stormy weather";
+            else if (weatherCode >= 45 && weatherCode <= 48) description = "Foggy";
+            else if (weatherCode >= 51 && weatherCode <= 67) description = "Rainy";
+            else if (weatherCode >= 71) description = "Stormy";
 
             document.getElementById('location').innerText = locationLabel;
             document.getElementById('weather-desc').innerText = description;
             document.getElementById('temperature').innerText = `${temp}°C`;
         })
         .catch(() => {
-            document.getElementById('weather-desc').innerText = "Weather monitoring offline";
+            document.getElementById('weather-desc').innerText = "Weather system offline";
         });
 }
